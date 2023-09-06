@@ -1,12 +1,10 @@
 package com.example.kakao_clone.feature.friend.domain;
 
+import com.example.kakao_clone.feature.user.domain.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -16,9 +14,12 @@ public class Friend {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String kakaoId;
+    @ManyToOne
+    @JoinColumn(name = "kakao_id")
+    private User kakaoId;
 
     private String friendKakaoId;
 
     private String friendName;
+
 }
