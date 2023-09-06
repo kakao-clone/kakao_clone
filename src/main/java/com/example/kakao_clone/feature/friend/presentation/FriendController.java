@@ -8,5 +8,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class FriendController {
 
-    private final FriendService friendService;
+    //private final FriendService friendService;
 }

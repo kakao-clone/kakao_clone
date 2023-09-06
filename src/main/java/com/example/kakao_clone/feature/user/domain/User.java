@@ -2,12 +2,17 @@ package com.example.kakao_clone.feature.user.domain;
 
 //import com.example.kakao_clone.feature.chat.domain.Chat;
 //import com.example.kakao_clone.feature.friend.domain.Friend;
+import com.example.kakao_clone.feature.friend.domain.Friend;
 import com.example.kakao_clone.global.auth.domain.Role;
+
+import com.example.kakao_clone.feature.participant.entity.Participant;
 import com.example.kakao_clone.global.common.BaseEntity;
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -38,9 +43,13 @@ public class User extends BaseEntity {
 
     private LocalDateTime lastLoginDate;
 
-//    @OneToMany(mappedBy = "user")
-//    private List<Chat> chatList = new ArrayList<>();
-//
-//    @OneToMany(mappedBy = "user")
-//    private List<Friend> friendList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "kakaoId")
+    private List<Friend> friendList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "userId")
+    private List<Participant> participant=new ArrayList<>();
+    public void addParticipant(Participant participants) {
+        participant.add(participants);
+    }
 }

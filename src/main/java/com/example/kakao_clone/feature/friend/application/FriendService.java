@@ -8,5 +8,5 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class FriendService {
 
-    private final FriendRepository friendRepository;
+    //private final FriendRepository friendRepository;
 }
